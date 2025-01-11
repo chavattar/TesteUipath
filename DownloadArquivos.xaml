@@ -1,0 +1,217 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="DownloadArquivos" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="urlAcesso" Type="InArgument(x:String)" />
+    <x:Property Name="pathAsSave" Type="InArgument(x:String)" />
+    <x:Property Name="strdataAtual" Type="InArgument(x:String)" />
+  </x:Members>
+  <VisualBasic.Settings>
+    <x:Null />
+  </VisualBasic.Settings>
+  <sap2010:WorkflowViewState.IdRef>DownloadArquivos_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System.Activities</x:String>
+      <x:String>System.Activities.Statements</x:String>
+      <x:String>System.Activities.Expressions</x:String>
+      <x:String>System.Activities.Validation</x:String>
+      <x:String>System.Activities.XamlIntegration</x:String>
+      <x:String>Microsoft.VisualBasic</x:String>
+      <x:String>Microsoft.VisualBasic.Activities</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Diagnostics</x:String>
+      <x:String>System.Drawing</x:String>
+      <x:String>System.IO</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Net.Mail</x:String>
+      <x:String>System.Xml</x:String>
+      <x:String>System.Xml.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>System.Windows.Markup</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>System.Runtime.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Enums</x:String>
+      <x:String>UiPath.UIAutomationCore.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Activities</x:String>
+      <x:String>UiPath.Shared.Activities</x:String>
+      <x:String>UiPath.Platform.ObjectLibrary</x:String>
+      <x:String>System.Reflection</x:String>
+      <x:String>System.Linq.Expressions</x:String>
+      <x:String>System.ComponentModel</x:String>
+      <x:String>System.Xml.Serialization</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.ExtractData</x:String>
+      <x:String>UiPath.DataTableUtilities</x:String>
+      <x:String>UiPath.UIAutomationNext.Contracts</x:String>
+      <x:String>UiPath.UIAutomationNext.Models.CV</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.VisualBasic</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Data.DataSetExtensions</AssemblyReference>
+      <AssemblyReference>System.Drawing</AssemblyReference>
+      <AssemblyReference>System.Drawing.Common</AssemblyReference>
+      <AssemblyReference>System.Drawing.Primitives</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Net.Mail</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>System.Xml.Linq</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>System.Private.ServiceModel</AssemblyReference>
+      <AssemblyReference>System.Private.DataContractSerialization</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Formatters</AssemblyReference>
+      <AssemblyReference>System.Runtime.Serialization.Primitives</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationCore</AssemblyReference>
+      <AssemblyReference>UiPath.UIAutomationNext.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.OCR.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Platform</AssemblyReference>
+      <AssemblyReference>System.Reflection.DispatchProxy</AssemblyReference>
+      <AssemblyReference>System.Reflection.TypeExtensions</AssemblyReference>
+      <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
+      <AssemblyReference>System.Console</AssemblyReference>
+      <AssemblyReference>System.Security.Permissions</AssemblyReference>
+      <AssemblyReference>System.Configuration.ConfigurationManager</AssemblyReference>
+      <AssemblyReference>System.ComponentModel</AssemblyReference>
+      <AssemblyReference>System.Memory</AssemblyReference>
+      <AssemblyReference>System.Private.Uri</AssemblyReference>
+      <AssemblyReference>System.Collections</AssemblyReference>
+      <AssemblyReference>System.Collections.NonGeneric</AssemblyReference>
+      <AssemblyReference>System.Linq.Expressions</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.EventBasedAsync</AssemblyReference>
+      <AssemblyReference>PresentationFramework</AssemblyReference>
+      <AssemblyReference>WindowsBase</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.Primitives</AssemblyReference>
+      <AssemblyReference>System.Private.Xml</AssemblyReference>
+      <AssemblyReference>System.Data.SqlClient</AssemblyReference>
+      <AssemblyReference>System.Memory.Data</AssemblyReference>
+      <AssemblyReference>UiPath.Excel.Activities.Design</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="DownloadArquivos" sap:VirtualizedContainerService.HintSize="1250,1524" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use Browser Chrome: Index of /dados/cnpj/dados_abertos_cnpj/2023-05" sap:VirtualizedContainerService.HintSize="1092,1501" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" InteractionMode="DebuggerApi" ScopeGuid="7d0048be-2931-4f57-ac52-3824d79f4cbe" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Fazer" sap:VirtualizedContainerService.HintSize="1058,1311" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <Sequence.Variables>
+              <Variable x:TypeArguments="sd:DataTable" Name="DtArquivos" />
+            </Sequence.Variables>
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NExtractData AppendResults="False" ContinueOnError="True" DataTable="[DtArquivos]" DisplayName="Extract Table Data" ExtractDataSettings="&lt;Table xmlns:xsi='http://www.w3.org/2001/XMLSchema-instance' xmlns:xsd='http://www.w3.org/2001/XMLSchema' Type='Table' AddCvHeader='true' IsScrollEnabled='false'&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0' ReferenceIdx='0' Name='Column-0' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0 Src' ReferenceIdx='1' Name='Column-0 Src' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Column-0 Alt Text' ReferenceIdx='2' Name='Column-0 Alt Text' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Name' ReferenceIdx='3' Name='Name'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Name  Url' ReferenceIdx='4' Name='Name  Url'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Last modified' ReferenceIdx='5' Name='Last modified'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Size' ReferenceIdx='6' Name='Size' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&#x9;&lt;Column xsi:type='DataColumn' ReferenceName='Description' ReferenceIdx='7' Name='Description' IsDeleted='true'&gt;&#xA;&#x9;&#x9;&lt;IsValidName&gt;true&lt;/IsValidName&gt;&#xA;&#x9;&#x9;&lt;ValidationErrorMessage /&gt;&#xA;&#x9;&#x9;&lt;IsExtra&gt;false&lt;/IsExtra&gt;&#xA;&#x9;&#x9;&lt;CanExtractSimilar&gt;false&lt;/CanExtractSimilar&gt;&#xA;&#x9;&#x9;&lt;Format xsi:type='TextColumnFormat' /&gt;&#xA;&#x9;&lt;/Column&gt;&#xA;&lt;/Table&gt;" ExtractMetadata="&lt;extract-table get_columns_name='1' get_empty_columns='1' columns_name_source='Longest'&gt;&lt;column name='Column-0' attr='fulltext' name2='Column-0 Src' attr2='src' name3='Column-0 Alt Text' attr3='alt' /&gt;&lt;column name='Name ' attr='fulltext' name2='Name  Url' attr2='href' /&gt;&lt;column name='Last modified ' attr='fulltext' /&gt;&lt;column name='Size ' attr='fulltext' /&gt;&lt;column name='Description ' attr='fulltext' /&gt;&lt;/extract-table&gt;" sap:VirtualizedContainerService.HintSize="1024,189" sap2010:WorkflowViewState.IdRef="NExtractData_1" LimitExtractionTo="None" MaximumResults="0" ScopeIdentifier="7d0048be-2931-4f57-ac52-3824d79f4cbe" Version="V3">
+              <uix:NExtractData.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="16, 161, 418, 1060" DesignTimeScaleFactor="1" FriendlyName="'NameLast modifiedSizeDe…'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;" Guid="f4be7b09-4de8-4600-a6d0-18745bdad4af" InformativeScreenshot="8a84dbba557c80b66b555a119efa3e28.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='Index of /dados/cnpj/dados_abertos_cnpj/*' /&gt;" SearchSteps="Selector" Version="V2" Visibility="Interactive" />
+              </uix:NExtractData.Target>
+            </uix:NExtractData>
+            <Assign sap:VirtualizedContainerService.HintSize="1024,115" sap2010:WorkflowViewState.IdRef="Assign_1">
+              <Assign.To>
+                <OutArgument x:TypeArguments="sd:DataTable">[DtArquivos]</OutArgument>
+              </Assign.To>
+              <Assign.Value>
+                <InArgument x:TypeArguments="sd:DataTable" xml:space="preserve">[DtArquivos.AsEnumerable().
+    Where(Function(row) Not row("Name").ToString = "Parent Directory").
+    CopyToDataTable()]</InArgument>
+              </Assign.Value>
+            </Assign>
+            <ui:ForEachRow ColumnNames="{x:Null}" CurrentIndex="{x:Null}" DataTable="[DtArquivos]" DisplayName="For Each Row in Data Table" sap:VirtualizedContainerService.HintSize="1024,945" sap2010:WorkflowViewState.IdRef="ForEachRow_1">
+              <ui:ForEachRow.Body>
+                <ActivityAction x:TypeArguments="sd:DataRow">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="sd:DataRow" Name="row" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Corpo" sap:VirtualizedContainerService.HintSize="1022,772" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <Sequence DisplayName="Ação" sap:VirtualizedContainerService.HintSize="988,712" sap2010:WorkflowViewState.IdRef="Sequence_7">
+                      <sap:WorkflowViewStateService.ViewState>
+                        <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                          <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                        </scg:Dictionary>
+                      </sap:WorkflowViewStateService.ViewState>
+                      <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click 'Cnaes.zip'" sap:VirtualizedContainerService.HintSize="954,189" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="7d0048be-2931-4f57-ac52-3824d79f4cbe" Version="V3">
+                        <uix:NClick.Target>
+                          <uix:TargetAnchorable BrowserURL="https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/2024-12/" CVScreenId="904d7e26-af0a-410f-a010-c3732c9c4117" CvTextArea="41, 241, 66, 18" CvTextArgument="[row.item(&quot;Name&quot;).ToString]" CvType="Text" DesignTimeRectangle="43, 240, 63, 17" DesignTimeScaleFactor="1" ElementType="Text" FriendlyName="'Cnaes.zip'" FullSelectorArgument="&lt;webctrl tag='TABLE' /&gt;&lt;webctrl tableRow='*' tag='A' /&gt;" FuzzySelectorArgument="[&quot;&lt;webctrl tag='TABLE' /&gt;&lt;webctrl type='' tag='A' class='' aaname='Cnaes.zip' check:innerText='&quot;+row.item(&quot;Name&quot;).ToString+&quot;' /&gt;&quot;]" Guid="551032a7-5060-414d-8d04-29c7b934df3c" InformativeScreenshot="f9f7cafb89a2a8937d44f9b47d70bbe1.png" ScopeSelectorArgument="&lt;html app='chrome.exe' title='*/dados/cnpj/dados_abertos_cnpj/*' /&gt;" SearchSteps="FuzzySelector, CV" Version="V2" Visibility="Interactive" />
+                        </uix:NClick.Target>
+                      </uix:NClick>
+                      <uix:NCheckState DisplayName="Check App State 'Salvar como'" sap:VirtualizedContainerService.HintSize="954,440" sap2010:WorkflowViewState.IdRef="NCheckState_2" ScopeIdentifier="7d0048be-2931-4f57-ac52-3824d79f4cbe" Timeout="60" Version="V3">
+                        <uix:NCheckState.IfExists>
+                          <Sequence DisplayName="Destino aparece" sap:VirtualizedContainerService.HintSize="450,200" sap2010:WorkflowViewState.IdRef="Sequence_8">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="SaveAS.xaml - Invoke Workflow File" sap:VirtualizedContainerService.HintSize="416,138" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="SaveAS.xaml">
+                              <ui:InvokeWorkflowFile.Arguments>
+                                <InArgument x:TypeArguments="x:String" x:Key="pathSaveAS">[pathAsSave]</InArgument>
+                                <InArgument x:TypeArguments="x:String" x:Key="strName">[row.item("Name").ToString]</InArgument>
+                              </ui:InvokeWorkflowFile.Arguments>
+                            </ui:InvokeWorkflowFile>
+                          </Sequence>
+                        </uix:NCheckState.IfExists>
+                        <uix:NCheckState.IfNotExists>
+                          <Sequence DisplayName="Destino não aparece" sap:VirtualizedContainerService.HintSize="450,175" sap2010:WorkflowViewState.IdRef="Sequence_9">
+                            <sap:WorkflowViewStateService.ViewState>
+                              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                                <x:Boolean x:Key="IsPinned">False</x:Boolean>
+                              </scg:Dictionary>
+                            </sap:WorkflowViewStateService.ViewState>
+                            <Throw Exception="[New BusinessRuleException(&quot;Não foi possivel abri salvar Como&quot;)]" sap:VirtualizedContainerService.HintSize="416,115" sap2010:WorkflowViewState.IdRef="Throw_1" />
+                          </Sequence>
+                        </uix:NCheckState.IfNotExists>
+                        <uix:NCheckState.Target>
+                          <uix:TargetAnchorable DesignTimeRectangle="0, 0, 960, 540" DesignTimeScaleFactor="1" FriendlyName="'Salvar como'" Guid="37964e8f-32a2-4d28-a3f9-cf3873b270bd" InformativeScreenshot="1c77ef933bc3a491bbb6a76509047c07.png" ScopeSelectorArgument="&lt;wnd app='chrome.exe' cls='#32770' title='*' /&gt;" SearchSteps="Selector, FuzzySelector" Version="V2" Visibility="Interactive">
+                            <uix:TargetAnchorable.FuzzySelectorArgument>
+                              <InArgument x:TypeArguments="x:String">
+                                <Literal x:TypeArguments="x:String" Value="" />
+                              </InArgument>
+                            </uix:TargetAnchorable.FuzzySelectorArgument>
+                          </uix:TargetAnchorable>
+                        </uix:NCheckState.Target>
+                      </uix:NCheckState>
+                    </Sequence>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEachRow.Body>
+            </ui:ForEachRow>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="-8, -8, 1936, 1056" BrowserType="Chrome" IconBase64="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" sap2010:WorkflowViewState.IdRef="TargetApp_1" InformativeScreenshot="be97680e6319da2fefa2e3954dc7723d.jpg" Selector="[string.Format(&quot;&lt;html app='chrome.exe' title='Index of /dados/cnpj/dados_abertos_cnpj/{0}' /&gt;&quot;, strdataAtual)]" Title="Index of /dados/cnpj/dados_abertos_cnpj/2024-12" Url="[&quot;https://arquivos.receitafederal.gov.br/dados/cnpj/dados_abertos_cnpj/&quot;+strdataAtual+&quot;/&quot;]" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+  </Sequence>
+</Activity>
